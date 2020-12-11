@@ -52,3 +52,9 @@ So it segfault from byte 81 to byte 84. That's where we need to put the address 
 >Enter Password: 
 >nope, incorrect password...
 >PwBLgNa8p8MTKW57S7zxVAQCxnCpV8JqTTs9XEBv
+
+```bash
+su level02
+PwBLgNa8p8MTKW57S7zxVAQCxnCpV8JqTTs9XEBv
+```
+

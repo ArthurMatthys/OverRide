@@ -19,3 +19,9 @@ A simple use a ghidra on this level, and we see that it's the same as the level0
 > level01
 > $ cat /home/users/level01/.pass
 > uSq2ehEGT6c9S24zbshexZQBXUGrncxn5sD5QfGL
+
+```bash
+su level01
+uSq2ehEGT6c9S24zbshexZQBXUGrncxn5sD5QfGL
+```
+
