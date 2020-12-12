@@ -50,6 +50,6 @@ int main(int argc, char **arv){
 	}
 
 
-	pop = auth(str, 0);
+	pop = auth(arv[1], 0);
 	return (1);
 }
