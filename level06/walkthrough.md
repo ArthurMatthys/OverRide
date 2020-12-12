@@ -161,5 +161,8 @@ $ cat /home/users/level07/.pass
 GbcPDRgsFK77LNnnuh7QyFYA2942Gp8yKj9KrWD8
 ```
 
-
+```bash
+su level07
+GbcPDRgsFK77LNnnuh7QyFYA2942Gp8yKj9KrWD8
+```
 
