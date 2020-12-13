@@ -1,4 +1,4 @@
-Here, we have a program that read a given file and create a backup into the `backups` file.
+Here, we have a program that reads a given file and creates a backup into the `backups` folder.
 So the first thing we try :
 
 ```bash

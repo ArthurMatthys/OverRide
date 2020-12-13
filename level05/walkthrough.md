@@ -46,7 +46,7 @@ And it doesn't work because `4294957020` is greater than int32_t max !
 
 So we need to write 2 bytes by 2 bytes:
 We need to write `0xd7e0 -> 0x08048370`  and `0xfff -> 0x08048372`
-Since we will have write 8 bytes already to specify the addresses, we have :
+Since we will have already written 8 bytes to specify the addresses, we have :
 
 ```mathematica
 >>> a = 0xd7e0

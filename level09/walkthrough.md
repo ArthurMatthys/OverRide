@@ -1,4 +1,4 @@
-We keep that in our mind, might be useful later if we can buffer overflow of string format exploit.
+We keep that in our mind, might be useful later if we can buffer overflow or string format exploit.
 
 ```assembly
 (gdb) disas secret_backdoor 

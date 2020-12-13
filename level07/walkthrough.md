@@ -1,4 +1,4 @@
-So we will spare you a tons of research, ask us if you want to know how we got this:
+So we will spare you tons of research, ask us if you want to know how we got this:
 We will use kind of a buffer overflow. The `store` method inside the binary doesn't check the memory where we write. So we can write anything almost anywhere.
 After a LOT of digging, we wanted to write a call to `system("/bin/sh")` after the `ret` inside the main function.
 
@@ -98,7 +98,7 @@ Dump of assembler code for function store_number:
    0x080486d6 <+166>:	ret    
 ```
 
-The store is happening here : `0x080486ce`
+The store is happening here : `0x080486ce` (+158)
 
 ```assembly
 (gdb) b *0x080486ce
