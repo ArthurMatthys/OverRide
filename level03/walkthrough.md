@@ -84,7 +84,7 @@ void test(int param_1,int param_2)
 	0x1 to 0x9  and 0x10 to 0x15-> call of decrypt(ctx)
 ```
 
-It's easy to guess that if we any of the value of ctx can give us an access to the promt, it will be a fix state.
+It's easy to guess that if any of the value of ctx can give us an access to the promt, it will be a fix state.
 So we need to know what's param_1 and param_2.
 
 ```assembly
@@ -102,14 +102,14 @@ Dump of assembler code for function main:
 ```
 
 Here, we can see the two arguments of test : 
-the first one is the result of `scanf` id-est our input and the second one a fix value, `0x8048747` (= 322424845)
+the first one is the result of `scanf` id-est our input and the second one a fix value, `0x1337d00d` (= 322424845)
 It's easy to check while in gdb with a breakpoint here :
 
 ```assembly
    0x08048760 <+25>:	ja     0x804884a <test+259>
 ```
 
-And looking at the content of eax.
+And looking at the content of registers.
 From here, you could automate the process, but there is only 15 possibilities.
 So after 30 seconds of trying :
 
@@ -122,6 +122,7 @@ Password:322424827
 $ whoami
 level04
 $ cat /home/users/level04/.pass
+
 kgv3tkEb9h2mLkRsPkXRfc2mHbjMxQzvb2FrgKkf
 ```
 

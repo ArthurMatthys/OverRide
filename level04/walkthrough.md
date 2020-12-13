@@ -1,4 +1,4 @@
-It looks like a buffer overflow in here, but since it will be inside a child of a fork, so we won't have a segfault.
+It looks like a buffer overflow in here, but since it will happen inside the child of a fork, we won't see have a crash report.
 
 ```c
 	int local_a0 [32];
@@ -13,7 +13,7 @@ It looks like a buffer overflow in here, but since it will be inside a child of 
 	}
 ```
 
-After some try, we got this :
+After some tries, we got this :
 
 ```bash
 level04@OverRide:~$ cat <(python -c 'print("AAAA" * 40)') - | ./level04 
