@@ -1,5 +1,5 @@
 So we will spare you a tons of research, ask us if you want to know how we got this:
-We will use kind of a buffer overflow. The `store` method inside the binary doesn't check if the memory where we write. So we can write anything almost anywhere.
+We will use kind of a buffer overflow. The `store` method inside the binary doesn't check the memory where we write. So we can write anything almost anywhere.
 After a LOT of digging, we wanted to write a call to `system("/bin/sh")` after the `ret` inside the main function.
 
 ```assembly
