@@ -1,4 +1,4 @@
-Looking into the code, there is a randomizer of addresses, so it seems impossible to exploit a buffer overflow or a a string format.
+Looking into the code, there is a randomizer of addresses, so it seems impossible to exploit a buffer overflow or a string format.
 So, in order to have a shell here, we need to enter this if statement :
 
 ```c
@@ -39,7 +39,7 @@ If we go further back, we got
 	}
 ```
 
-From here, we can easily see that to go outside the while loop while having bVar7 = 1, we need to reach the break statement, that means that we need to loop 11 times, and this statement must be always true : `*(byte *)puVar4 == *pbVar5`, that means that the first 11 bytes of puVar4 and pbVar5 must be equals.
+From here, we can easily see that to go outside the `while` loop while having bVar7 = 1, we need to reach the break statement, that means that we need to loop 11 times, and this statement must be always true : `*(byte *)puVar4 == *pbVar5`, that means that the first 11 bytes of puVar4 and pbVar5 must be equals.
 We know that pbVar5 is a string containing `Congratulations!`, so let's focus on puVar4, and in particular, local_21.
 
 ```c
