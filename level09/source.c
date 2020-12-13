@@ -42,16 +42,9 @@ void set_msg(char *pcParm1)
 
 {
 	long lVar1;
-	undefined8 *puVar2;
 	undefined8 local_408 [128];
 
-	lVar1 = 0x80;
-	puVar2 = local_408;
-	while (lVar1 != 0) {
-		lVar1 = lVar1 + -1;
-		*puVar2 = 0;
-		puVar2 = puVar2 + 1;
-	}
+	memset(local_408, 0, 128);
 	puts(">: Msg @Unix-Dude");
 	printf(">>: ");
 	fgets((char *)local_408,0x400,stdin);
